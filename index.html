@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Mining Op Rewards Calculator</h1>
-    <form name="Calculator">
+    <form name="Calculator" id="calc">
       <p>
 	<strong>Total Ore Sale Value:</strong> <input type="number" value="0.00" id="totalfield">
 	
@@ -22,7 +22,7 @@
       <input type="text" value="Player Name" id="namefield">
       <input type="number" value="0.00" id="hoursfield">
       <input type="number" value="0.00" id="rewardfield">
-      <input type="button" value="Add Player" onclick="modify_height('calctab');">
+      <input type="button" value="Add Player" onclick="add_player('calc');">
     </form>
 <!-- <address>
      <a href="mailto:andrew@andrews-comp">Andrew Spano</a>

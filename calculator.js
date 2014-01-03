@@ -13,12 +13,13 @@ function modify_height(tableid) {
 	newcell.setAttribute("id",table.rows[row_count-1].cells[c].id + 1 );
 	alert(newcell.id);
 	}*/
-    for(var c = 0; c < col_count; c = c +1) {
-	var newcell = row.insertCell(c);
-	newcell.createElement(
-    }
 }
 
+function add_player(formid) {
+    var form = document.getElementById(formid);
+    document.writeln("<br>");
+    form.createElement("input");
+}
 function calculate(hours_contributed, total_value, number_of_players) {
     
 }
