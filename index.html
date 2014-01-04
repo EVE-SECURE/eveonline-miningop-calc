@@ -16,13 +16,13 @@
       <p>
 	<strong>Duration of Mining Op (In Hours):</strong> <input type="number" value="5" id="durationfield">
       </p>
-      <p>
-	<strong>Player Name  Hours Contributed  Isk Rewarded</strong>
-      </p>
-      <input type="text" value="Player Name" id="namefield">
-      <input type="number" value="0.00" id="hoursfield">
-      <input type="number" value="0.00" id="rewardfield">
-      <input type="button" value="Add Player" onclick="add_player('calc');">
+      <fieldset id="fieldset">
+	<legend>Player Contribution:</legend>
+	Player Name: <input type="text" value="Player Name" id="namefield"> <br>
+ 	Hours Contributed: <input type="number" value="0.00" id="hoursfield"> <br>
+	Isk Earned: <input type="number" value="0.00" id="rewardfield"> <br>
+	<input type="button" value="Add Player" onclick="add_player('calc');"> <br>
+      </fieldset>
     </form>
 <!-- <address>
      <a href="mailto:andrew@andrews-comp">Andrew Spano</a>
