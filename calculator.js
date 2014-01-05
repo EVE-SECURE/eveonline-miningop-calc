@@ -52,7 +52,7 @@ function create_table(){
     players.calculate_rewards(); //make sure all of the player rewards have been found before creating the table.
     
     var body = document.body;
-    alert(body);
+//    alert(body);
     var table = document.createElement("table");
     table.style.width="100%";
     table.style.border = "1px solid black";
@@ -68,7 +68,7 @@ function create_table(){
     while(players.playerCount > 0) {
 	//table filling logic
 	var player = players.pop_player_data();
-	alert("The Player is: " + player);
+//	alert("The Player is: " + player);
 	row = table.insertRow(-1);
 	cell = row.insertCell(-1);
 	cell.innerHTML = player.name;
@@ -88,9 +88,9 @@ function create_table(){
 
 function add_player() {
     var player = new Player(document.getElementById("namefield").value, parseFloat(document.getElementById("hoursfield").value));
-    alert(player);
+//    alert(player);
     players.add_player(player);
-    alert(player.name + " " + player.hours_contributed);
+//    alert(player.name + " " + player.hours_contributed);
     document.getElementById("namefield").value = "";
     document.getElementById("hoursfield").value = 0.00;
     man_hours = man_hours + player.hours_contributed;
