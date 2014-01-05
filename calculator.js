@@ -13,22 +13,22 @@ function Player(name, hours_contributed) {
 function Player_Collection (){
     //object keeps track of how many players there are, and their data
     this.playerCount = 1;
-    this.players = new Array();
+    this.player_col = new Array();
     this.add_player = function(player) {
-	players[players.length] = player;
+	this.player_col[this.player_col.length] = player;
 	this.playerCount = this.playerCount + 1
     };
 
     this.pop_player_data = function() {
 	//returns first player in the list's data and removes them from list.
-	new_players = [];
-	ret = players[0];
+	new_player_col = [];
+	ret = this.player_col[0];
 	var n = 0
-	for(var i = 1; i < players.length; i = i + 1) {
-	    new_players[n] = players[i];
+	for(var i = 1; i < this.player_col.length; i = i + 1) {
+	    new_player_col[n] = player_col[i];
 	    n = n + 1;
 	}
-	players = new_players;
+	player_col = new_player_col;
 	this.playerCount = this.playerCount -1;
 	return ret;
 	
@@ -54,6 +54,7 @@ function create_table(){
     while(players.playerCount > 0) {
 	//table filling logic
 	player = players.pop_player_data();
+	alert("The Player is: " + player)
 	row = table.insertRow();
 	cell = row.insertCell();
 	cell.innerHTML = player.name;
@@ -85,8 +86,10 @@ function modify_height(tableid) {
 }
 
 function add_player() {
-    var player = new Player(document.getElementById("namefield"), parseInt(document.getElementById("hoursfield")));
+    var player = new Player(document.getElementById("namefield"), parseInt(document.getElementById("hoursfield")))
+    alert(player);
     players.add_player(player);
+    alert(player);
     document.getElementById("namefield").value = "";
     document.getElementById("hoursfield").value = 0.00;
 
