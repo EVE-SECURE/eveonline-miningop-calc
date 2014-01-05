@@ -50,7 +50,9 @@ function modify_height(tableid) {
 }
 
 function add_player() {
-    
+    var index = players[players.length];
+    players[index][0] = document.getElementById("namefield");
+    players[index][1] = document.getElementById("hoursfield");
     
 }
 
