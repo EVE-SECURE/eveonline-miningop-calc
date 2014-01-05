@@ -1,6 +1,6 @@
 var players = new Player_Collection();
 var man_hours = 0.0; //global variable calculating total hours contributed
-var table;
+var table = document.createElement("table");
 function Player(name, hours_contributed) {
     //defines and stores data for each player added.
     
@@ -13,7 +13,7 @@ function Player(name, hours_contributed) {
     };
 }
 
-
+1
 function Player_Collection (){
     //object keeps track of how many players there are, and their data
     this.playerCount = 0;
@@ -48,14 +48,9 @@ function Player_Collection (){
 
 
 
-function create_table(will_calculate_table){
-    if(will_calculate_table === true) {
-	players.calculate_rewards(); //make sure all of the player rewards have been found before creating the table.
-    }
-    
+function create_table(){
     var body = document.body;
 //    alert(body);
-    var table = document.createElement("table");
     table.style.width="100%";
     table.style.border = "1px solid black";
     var row = table.insertRow(-1);
@@ -98,6 +93,11 @@ function add_player() {
     man_hours = man_hours + player.hours_contributed;
     create_table(false); //create a table, but don't calculate the value
     
+}
+
+
+function add_row() {
+    var row = table.createRow(-1);
 }
 
 function form_calculate(hours_contributed) {
