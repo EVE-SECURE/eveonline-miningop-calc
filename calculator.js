@@ -9,7 +9,7 @@ function Player(name, hours_contributed) {
     this.isk_reward = 0.00;
 
     this.calculate_reward = function() {
-	form_calculate(hours_contributed);
+	this.isk_reward = form_calculate(hours_contributed);
     };
 }
 
@@ -101,14 +101,14 @@ function form_calculate(hours_contributed) {
     var op_length = parseFloat(document.getElementById("durationfield").value);
     var total_value = parseFloat(document.getElementById("totalfield").value);
 
-    calculate(hours_contributed, op_length, total_value);
+    return calculate(hours_contributed, op_length, total_value);
 }
 
 function calculate(hours_contributed, op_length, total_value) {
     /* abstract out actual calculation logic, create seperate function
     for form manipulation */
-    var share_value = total_value / man_hours;
-    return hours_contributed * share_value;
+    var share_value = (total_value * 1.00) / man_hours;
+    return hours_contributed * share_value * 1.00; //1.00 is necessary to insure float division
     
     
 }
