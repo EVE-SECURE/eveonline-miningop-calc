@@ -85,16 +85,3 @@ function calculate(hours_contributed, op_length, total_value) {
     for form manipulation */
     
 }
-
-
-function form_calculate(output_form) {
-    if( output_form === undefined) {
-	output_form = document.getElementById("rewardfield");
-    }
-    var op_length = parseInt(document.getElementById("durationfield").value);
-
-    var hours_contrib = parseInt(document.getElementById("hoursfield").value);
-    ship_hours = ship_hours + hours_contrib;
-    var total_val = parseInt(document.getElementById("totalfield").value);
-    output_form.value = calculate(hours_contrib, op_length, total_val);
-}
