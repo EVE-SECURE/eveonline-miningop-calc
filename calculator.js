@@ -25,7 +25,7 @@ function Player_Collection (){
 	ret = this.player_col[0];
 	var n = 0
 	for(var i = 1; i < this.player_col.length; i = i + 1) {
-	    new_player_col[n] = player_col[i];
+	    new_player_col[n] = this.player_col[i];
 	    n = n + 1;
 	}
 	player_col = new_player_col;
@@ -43,22 +43,22 @@ function create_table(){
     var table = document.createElement("table");
     table.style.width="100%";
     table.style.border = "1px solid black";
-    var row = table.insertRow(table.length);
-    var cell = row.insertCell();
+    var row = table.insertRow(-1);
+    var cell = row.insertCell(-1);
     cell.innerHTML = "<strong>Player</strong>";
-    cell = row.insertCell();
+    cell = row.insertCell(-1);
     cell.innerHTML = "<strong>Hours Contributed</strong>";
-    cell = row.insertCell();
+    cell = row.insertCell(-1);
     cell.innerHTML = "<strong>Isk Rewarded</strong>";
 
     while(players.playerCount > 0) {
 	//table filling logic
 	player = players.pop_player_data();
 	alert("The Player is: " + player)
-	row = table.insertRow();
-	cell = row.insertCell();
+	row = table.insertRow(-1);
+	cell = row.insertCell(-1);
 	cell.innerHTML = player.name;
-	cell = row.insertCell();
+	cell = row.insertCell(-1); //-1 apparently appends for some reason
 	cell.innerHTML = player.hours_contributed;
     }
     
