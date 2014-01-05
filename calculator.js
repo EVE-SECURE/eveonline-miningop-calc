@@ -1,6 +1,27 @@
 var form_count = 1;
 var ship_hours = 1;
-var players = [[]];
+
+function Player(name, hours_contributed) {
+    //defines and stores data for each player added.
+    
+    this.name = name;
+    this.hours_contributed = hours_contributed;
+}
+
+
+function Player_Collection (){
+    //object keeps track of how many players there are, and their data
+    this.playerCount = 1;
+    this.players = new Array();
+
+    this.pop_player_data = function() {
+	//returns first player in the list's data and removes them from list.
+	new_players = [];
+	return [players[0]];
+    }
+}
+
+
 
 function create_table(){
     var body = document.body;
@@ -50,7 +71,9 @@ function modify_height(tableid) {
 }
 
 function add_player() {
-    var index = players[players.length];
+    alert(players);
+    alert(players.length);
+    var index = players.length;
     players[index][0] = document.getElementById("namefield");
     players[index][1] = document.getElementById("hoursfield");
     
