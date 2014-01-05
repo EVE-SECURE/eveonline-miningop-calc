@@ -22,10 +22,21 @@
  	Hours Contributed: <input type="number" value="0.00" onchange="" id="hoursfield"> <br>
 	<input type="button" value="Add Player" onclick="add_player();">
       </fieldset>
-      <input type="button" value="Calculate Payouts" onclick="create_table();">
+
+
+      
+      <input type="button" value="Calculate Payouts" onclick="create_table('true');">
     </form>
-<!-- <address>
-     <a href="mailto:andrew@andrews-comp">Andrew Spano</a>
-</address> -->
-</body>
+    <!-- <address>
+	 <a href="mailto:andrew@andrews-comp">Andrew Spano</a>
+    </address> -->
+    <table id="calctable">
+      <th>
+	<tr><td><strong>Player Name</strong></td>
+	  <td><strong>Hours Contributed</strong></td>
+	  <td><strong>Isk Rewarded</strong></td>
+	</tr>
+      </th>
+    </table>
+  </body>
 </html>
