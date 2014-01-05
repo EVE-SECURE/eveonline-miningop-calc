@@ -1,5 +1,6 @@
 var form_count = 1;
 var ship_hours = 1;
+Player_Collection players = new Player_Collection();
 
 function Player(name, hours_contributed) {
     //defines and stores data for each player added.
@@ -13,11 +14,14 @@ function Player_Collection (){
     //object keeps track of how many players there are, and their data
     this.playerCount = 1;
     this.players = new Array();
+    this.add_player = function(player) {
+	players[players.length] = player;
+    }
 
     this.pop_player_data = function() {
 	//returns first player in the list's data and removes them from list.
 	new_players = [];
-	return [players[0]];
+	return [players[0].name, players[0].hours_contributed];
     }
 }
 
@@ -71,11 +75,8 @@ function modify_height(tableid) {
 }
 
 function add_player() {
-    alert(players);
-    alert(players.length);
-    var index = players.length;
-    players[index][0] = document.getElementById("namefield");
-    players[index][1] = document.getElementById("hoursfield");
+    var player = new Player(document.getElementById("namefield"), parseInt(document.getElementById("hoursfield")));
+    
     
 }
 
