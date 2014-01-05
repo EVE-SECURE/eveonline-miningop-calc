@@ -37,11 +37,20 @@ function Player_Collection (){
 	return ret;
 	
     };
+    this.calculate_rewards = function() {
+	//calculates the rewards for every player, should only be triggered after all have been entered.
+	for(var player in this.player_col) {
+	    this.player_col[player].form_calculate();
+	}
+    };
+	
 }
 
 
 
 function create_table(){
+    players.calculate_rewards(); //make sure all of the player rewards have been found before creating the table.
+    
     var body = document.body;
     alert(body);
     var table = document.createElement("table");
@@ -49,6 +58,7 @@ function create_table(){
     table.style.border = "1px solid black";
     var row = table.insertRow(-1);
     var cell = row.insertCell(-1);
+    
     cell.innerHTML = "<strong>Player</strong>";
     cell = row.insertCell(-1);
     cell.innerHTML = "<strong>Hours Contributed</strong>";
