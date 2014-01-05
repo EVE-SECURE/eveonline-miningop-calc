@@ -40,7 +40,7 @@ function Player_Collection (){
     this.calculate_rewards = function() {
 	//calculates the rewards for every player, should only be triggered after all have been entered.
 	for(var player in this.player_col) {
-	    this.player_col[player].form_calculate();
+	    this.player_col[player].calculate_reward();
 	}
     };
 	
@@ -93,13 +93,13 @@ function add_player() {
     alert(player.name + " " + player.hours_contributed);
     document.getElementById("namefield").value = "";
     document.getElementById("hoursfield").value = 0.00;
-    man_hours = man_hours + player.hours_contributed();
+    man_hours = man_hours + player.hours_contributed;
     
 }
 
 function form_calculate(hours_contributed) {
     var op_length = parseFloat(document.getElementById("durationfield").value);
-    var total_value = parseFloat(document.getElementById("totasfield").value);
+    var total_value = parseFloat(document.getElementById("totalfield").value);
 
     calculate(hours_contributed, op_length, total_value);
 }
