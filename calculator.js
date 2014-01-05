@@ -1,4 +1,4 @@
-var form_count = 1;
+var for_mcount = 1;
 var ship_hours = 1;
 var players = new Player_Collection();
 
@@ -16,12 +16,22 @@ function Player_Collection (){
     this.players = new Array();
     this.add_player = function(player) {
 	players[players.length] = player;
+	this.playerCount = this.playerCount + 1
     };
 
     this.pop_player_data = function() {
 	//returns first player in the list's data and removes them from list.
 	new_players = [];
-	return [players[0].name, players[0].hours_contributed];
+	ret = players[0];
+	var n = 0
+	for(var i = 1; i < players.length; i = i + 1) {
+	    new_players[n] = players[i];
+	    n = n + 1;
+	}
+	players = new_players;
+	this.playerCount = this.playerCount -1;
+	return ret;
+	
     };
 }
 
@@ -35,24 +45,24 @@ function create_table(){
     table.style.border = "1px solid black";
     var row = table.insertRow(table.length);
     var cell = row.insertCell();
-
-    
-    for(var p in players) {
-	row = table.insertRow();
-	for (var c = 0; c < 3; c = c + 1) {
-	    cell = row.insertCell();
-	    cell.innerHTML = players[p][c];
-	}
-
-    }
-
-    
     cell.innerHTML = "<strong>Player</strong>";
     cell = row.insertCell();
     cell.innerHTML = "<strong>Hours Contributed</strong>";
     cell = row.insertCell();
     cell.innerHTML = "<strong>Isk Rewarded</strong>";
-        
+
+    while(players.playerCount > 0) {
+	//table filling logic
+	player = players.pop_player_data();
+	row = table.insertRow();
+	cell = row.insertCell();
+	cell.innerHTML = player.name;
+	cell = row.insertCell();
+	cell.innerHTML = player.hours_contributed;
+    }
+    
+
+
     body.appendChild(table);
 }
 
@@ -87,9 +97,7 @@ function add_player() {
 function calculate(hours_contributed, op_length, total_value) {
     /* abstract out actual calculation logic, create seperate function
     for form manipulation */
-    var hour_worth = total_value / (ship_hours * 1.00) ; //parens to guarantee float division
-    alert(hour_worth);
-    return hours_contributed * hour_worth;
+    
 }
 
 
