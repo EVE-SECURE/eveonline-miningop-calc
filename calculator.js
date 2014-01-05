@@ -1,6 +1,37 @@
 var form_count = 1;
-var player_amount = 1; //the total amount of players who particpated
 var ship_hours = 1;
+var players = [[]];
+
+function create_table(){
+    var body = document.body;
+    alert(body);
+    var table = document.createElement("table");
+    table.style.width="100%";
+    table.style.border = "1px solid black";
+    var row = table.insertRow(table.length);
+    var cell = row.insertCell();
+
+    
+    for(var p in players) {
+	row = table.insertRow();
+	for (var c = 0; c < 3; c = c + 1) {
+	    cell = row.insertCell();
+	    cell.innerHTML = players[p][c];
+	}
+
+    }
+
+    
+    cell.innerHTML = "<strong>Player</strong>";
+    cell = row.insertCell();
+    cell.innerHTML = "<strong>Hours Contributed</strong>";
+    cell = row.insertCell();
+    cell.innerHTML = "<strong>Isk Rewarded</strong>";
+        
+    body.appendChild(table);
+}
+
+
 function modify_height(tableid) {
     //Modifies the number of rows of the table
 
@@ -18,9 +49,8 @@ function modify_height(tableid) {
 	}*/
 }
 
-function add_player(formid) {
-    var form = document.getElementById(formid);
-    //var new_player = new FieldSet("andrew");
+function add_player() {
+    
     
 }
 
