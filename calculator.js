@@ -7,6 +7,10 @@ function Player(name, hours_contributed) {
     this.name = name;
     this.hours_contributed = hours_contributed;
     this.isk_reward = 0.00;
+
+    this.calculate_reward = function() {
+	form_calculate(hours_contributed);
+    };
 }
 
 
@@ -80,7 +84,7 @@ function add_player() {
     document.getElementById("namefield").value = "";
     document.getElementById("hoursfield").value = 0.00;
     man_hours = man_hours + player.hours_contributed();
-
+    
 }
 
 function form_calculate(hours_contributed) {
