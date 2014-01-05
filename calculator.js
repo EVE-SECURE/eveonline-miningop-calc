@@ -107,7 +107,8 @@ function form_calculate(hours_contributed) {
 function calculate(hours_contributed, op_length, total_value) {
     /* abstract out actual calculation logic, create seperate function
     for form manipulation */
-    
+    var share_value = total_value / man_hours;
+    return hours_contributed * share_value;
     
     
 }
