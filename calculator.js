@@ -13,8 +13,15 @@ function Player(name, hours_contributed) {
 	this.isk_reward = form_calculate(hours_contributed);
     };
 }
+function add_row(name, hours) {
+    var row = table.insertRow(-1);
+    var col = row.insertCell(-1);
 
-1
+    col.innerHTML = name
+    col = row.insertCell(-1);
+    col.innerHTML = hours;
+    
+}
 function Player_Collection (){
     //object keeps track of how many players there are, and their data
     this.playerCount = 0;
@@ -92,7 +99,7 @@ function add_player() {
     document.getElementById("namefield").value = "";
     document.getElementById("hoursfield").value = 0.00;
     man_hours = man_hours + player.hours_contributed;
-    add_row(); //create a table, but don't calculate the value
+    add_row(player.name, player.hours_contributed); //create a table, but don't calculate the value
     
 }
 
