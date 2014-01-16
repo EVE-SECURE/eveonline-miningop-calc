@@ -1,7 +1,7 @@
 var players = new Player_Collection();
 var man_hours = 0.0; //global variable calculating total hours contributed
 var table = document.getElementById("c");
-alert(table);
+//alert(table);
 function Player(name, hours_contributed) {
     //defines and stores data for each player added.
     
@@ -93,7 +93,7 @@ function create_table(){
 
 function add_player() {
     var player = new Player(document.getElementById("namefield").value, parseFloat(document.getElementById("hoursfield").value));
-    alert(player.name);
+//    alert(player.name);
     players.add_player(player);
 //    alert(player.name + " " + player.hours_contributed);
     document.getElementById("namefield").value = "";
@@ -123,12 +123,12 @@ function calculate(hours_contributed, op_length, total_value) {
 
 function build_answers() {
 //creates the final column of the table with the calculated rewards.
-    alert(players);
-    alert(table.rows.length);
+//    alert(players);
+//  alert(table.rows.length);
 
     players.calculate_rewards();
     for(var r = 2; r < table.rows.length; r = r + 1) {
-	alert(players.player_col[r-2]);
+//	alert(players.player_col[r-2]);
 	var row = table.rows[r];
 	var cell = row.insertCell(-1);
 
