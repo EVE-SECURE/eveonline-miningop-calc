@@ -93,7 +93,7 @@ function create_table(){
 
 function add_player() {
     var player = new Player(document.getElementById("namefield").value, parseFloat(document.getElementById("hoursfield").value));
-//    alert(player);
+    alert(player.name);
     players.add_player(player);
 //    alert(player.name + " " + player.hours_contributed);
     document.getElementById("namefield").value = "";
@@ -103,10 +103,6 @@ function add_player() {
     
 }
 
-
-function add_row() {
-    var row = table.insertRow(-1);
-}
 
 function form_calculate(hours_contributed) {
     var op_length = parseFloat(document.getElementById("durationfield").value);
