@@ -119,3 +119,18 @@ function calculate(hours_contributed, op_length, total_value) {
     
     
 }
+
+
+function build_answers() {
+//creates the final column of the table with the calculated rewards.
+    alert(players);
+
+    players.calculate_rewards();
+    for(var r = 0; r < table.rows.length; r = r + 1) {
+	alert(players[r]);
+	var row = table.rows[r];
+	var cell = row.insertCell(-1);
+
+	cell.innerHTML = players.player_col[r].isk_reward;
+    }
+}
