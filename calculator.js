@@ -124,13 +124,14 @@ function calculate(hours_contributed, op_length, total_value) {
 function build_answers() {
 //creates the final column of the table with the calculated rewards.
     alert(players);
+    alert(table.rows.length);
 
     players.calculate_rewards();
-    for(var r = 0; r < table.rows.length; r = r + 1) {
-	alert(players[r]);
+    for(var r = 2; r < table.rows.length; r = r + 1) {
+	alert(players.player_col[r-2]);
 	var row = table.rows[r];
 	var cell = row.insertCell(-1);
 
-	cell.innerHTML = players.player_col[r].isk_reward;
+	cell.innerHTML = players.player_col[r-2].isk_reward;
     }
 }
